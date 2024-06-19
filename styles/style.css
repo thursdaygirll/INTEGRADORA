@@ -93,10 +93,16 @@ nav .nav-links li a:hover {
   padding: 10px 20px;
   border-radius: 5px;
   font-size: 16px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.222);
+}
+
+.btn-contact:hover {
+  background-color: #000000ca;
 }
 
 .content {
   padding: 40px 20px;
+  box-shadow: #000000d8;
 }
 
 .section {
@@ -129,57 +135,81 @@ nav .nav-links li a:hover {
 
 .section .image {
   flex: 1;
+  box-shadow: #000000d8;
 }
 
 .section .image img {
   width: 100%;
   border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.222); 
+  transition: transform 0.4s;
 }
 
 .cards {
   display: flex;
-  gap: 15px;
+  gap: 20px; /* Increase the gap between cards */
   overflow-x: auto;
   width: 100%;
   padding: 15px;
   justify-content: center;
 }
 
-.cards .card {
+.card {
+  width: 350px; /* Increased width of each card */
+  height: 250px; /* Increased height of each card */
+  perspective: 1000px;
   flex: 0 0 auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 450px;
-  max-width: calc(100vw - 30px);
-  border-radius: 10px;
-  overflow: hidden;
-  position: relative;
-  cursor: pointer;
-  transition: transform 0.4s, filter 0.4s;
 }
 
-.cards .card img {
+.card-inner {
   width: 100%;
-  height: auto;
-  object-fit: cover;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
   transition: transform 0.4s;
 }
 
-.cards .card p.second-text {
-  font-size: 0.7em;
-  margin-top: 5px;
+.card.flipped .card-inner {
+  transform: rotateY(180deg);
 }
 
-.cards .card:hover {
-  transform: scale(1.1);
+.card-front,
+.card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+
+.card-front img {
+  width: 100%; 
+  object-fit: cover; 
+  display: block; 
+  border-radius: 5px;
+}
+
+.card-back {
+  transform: rotateY(180deg);
+  background-color: #ecf4ef;
+  color: #000000;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 24px;
+  border-color:  #ecf4ef;
+  border-radius: 5px;
+}
+
+.card {
+  cursor: pointer;
+  transition: transform 0.4s, filter 0.4s;
 }
 
 .cards:hover > .card:not(:hover) {
   filter: blur(10px);
   transform: scale(0.9);
 }
+
 
 .b {
   position: relative;
@@ -192,7 +222,7 @@ nav .nav-links li a:hover {
   justify-content: left;
   text-align: left;
   padding-left: 100px;
-  backdrop-filter: blur(5px);
+  backdrop-filter: blur(10px);
   opacity: 0.8;
 }
 
@@ -213,6 +243,7 @@ nav .nav-links li a:hover {
   padding: 10px 20px;
   border-radius: 5px;
   font-size: 16px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.222);
 }
 
 .b-b:hover {
